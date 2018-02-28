@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+ 	// Your JavaScript goes here!
+  function computerPlay() {
+    let computerChoice = Math.random();
+    if (computerChoice <= .33){
+      return "rock";
+  }else if(computerChoice >= .66){
+      return "paper";
+  }else {
+      return "scissors";
+  }
+}
+var playerSelection;
+function playerHand() {
+  playerSelection = playerHand();
+}
+
+let computerSelection = computerPlay()
+
+  function playRound(playerSelection, computerSelection){
+if (playerSelection ===  "rock"){
+  if  (computerSelection === "paper"){return "Paper covers Rock!"}
+  else if (computerSelection === "rock") {return "Rock ties with Rock!"}
+  else if (computerSelection === "scissors") {return "Scissors looses to Rock!"}
+}else if (playerSelection ===  "paper"){
+  if  (computerSelection === "paper"){return "Paper ties with Paper!"}
+  else if (computerSelection === "rock") {return "Rock is covered by Paper!"}
+  else if (computerSelection === "scissors") {return "Scissors cuts Paper!"}
+}else if (playerSelection ===  "scissors"){
+  if  (computerSelection === "paper"){return "Paper is cut by Scissors!"}
+  else if (computerSelection === "rock") {return "Rock breaks Scissors!"}
+  else if (computerSelection === "scissors") {return "Scissors ties with Scissors!"}
+}
+
+}
+//  console.log(playRound(playerSelection, computerSelection))
+console.log(playerSelection)
+
+
+  </script>
+
+  <div id="game">
+      <button onClick="playerHand('rock')">&#9994;</button>
+      <button onClick="playerHand('paper')">&#9995;</button>
+      <button onClick="playerHand('scissors')">&#9996;</button>
+  </div>
+
+&#x1F464;
+&#x1F5A5;
+</body>
+</html>
