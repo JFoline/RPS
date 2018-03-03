@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,700');
+
 * {
 margin:0;
 padding:0;
 box-sizing: border-box;
-
 }
 
-/*MY CODE
-input, button, submit {
-	border:none;
-	font-size: 150px;
-}*/
+
+
 body{
-	font-size: 150px;
+	font-family: 'Roboto Slab', serif;
+	font-size: 250px;
+	text-align: center;
+}
+#board{
+	font-weight:700;
+}
+#action{
+	font-size: 66px;
+}
+
+.route{
+	  display: inline-block
 }
