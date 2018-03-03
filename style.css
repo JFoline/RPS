@@ -12,6 +12,7 @@ body{
 	font-family: 'Roboto Slab', serif;
 	font-size: 250px;
 	text-align: center;
+	line-height: 1;
 }
 #board{
 	font-weight:700;
@@ -22,4 +23,9 @@ body{
 
 .route{
 	  display: inline-block
+}
+
+.route:hover {
+  cursor: pointer;
+  background: #24272E;
 }
