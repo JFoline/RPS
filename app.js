@@ -68,7 +68,7 @@ function round(userPlay){
 function game(){
 
   if (uScore === 5) {
-   time_div.innerHTML = "Congradulations! You defeated the computer in " + gameRound  +" round. ";
+   time_div.innerHTML = "congratulations! You defeated the computer in " + gameRound  +" round. ";
  }
  if (cScore === 5) {
    time_div.innerHTML = "You lost to the computer in " + gameRound  +" round. ";
