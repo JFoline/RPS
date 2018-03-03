@@ -10,7 +10,7 @@ box-sizing: border-box;
 
 body{
 	font-family: 'Roboto Slab', serif;
-	font-size: 250px;
+	font-size: 240px;
 	text-align: center;
 	line-height: 1;
 }
@@ -18,9 +18,11 @@ body{
 	font-weight:700;
 }
 #action{
-	font-size: 66px;
+	font-size: 80px;
 }
-
+#time{
+	font-size: 40px;
+}
 .route{
 	  display: inline-block
 }

@@ -1,8 +1,11 @@
 let uScore = 0;
 let cScore = 0;
+let gameRound = 1;
 const uScore_span = document.getElementById("uScore");
 const cScore_span = document.getElementById("cScore");
+const gameRound_span = document.getElementById("gameRound");
 const action_p = document.querySelector("#action > p");
+const time_div = document.querySelector("#time");
 const rock_div = document.getElementById("rock");
 const paper_div = document.getElementById("paper");
 const scissors_div = document.getElementById("scissors");
@@ -19,23 +22,29 @@ function win(userPlay, compPlay) {
   uScore++;
   uScore_span.innerHTML = uScore;
   cScore_span.innerHTML = cScore;
+  gameRound_span.innerHTML = gameRound;
   action_p.innerHTML = userPlay + " beats " + compPlay;
+  gameRound++;
 }
 
 function lose(userPlay, compPlay) {
   cScore++;
+  gameRound++;
   uScore_span.innerHTML = uScore;
   cScore_span.innerHTML = cScore;
+  gameRound_span.innerHTML = gameRound;
   action_p.innerHTML = userPlay + " loses to " + compPlay;
 }
 
 function tie(userPlay, compPlay) {
+  gameRound++;
   uScore_span.innerHTML = uScore;
   cScore_span.innerHTML = cScore;
+  gameRound_span.innerHTML = gameRound;
   action_p.innerHTML =" both seleced " + compPlay;
 }
 
-function game(userPlay){
+function round(userPlay){
   const compPlay = generateComp();
   switch  (userPlay + compPlay) {
     case "rockscissors":
@@ -56,18 +65,29 @@ function game(userPlay){
   }
 }
 
+function game(){
 
-function main() {
+  if (uScore === 5) {
+   time_div.innerHTML = "Congradulations! You defeated the computer in " + gameRound  +" round. ";
+ }
+ if (cScore === 5) {
+   time_div.innerHTML = "You lost to the computer in " + gameRound  +" round. ";
+ }
+}
+
+function userSelection() {
 rock_div.addEventListener('click', function(){
-  game("rock");
+  round("rock");
+  game();
 });
 paper_div.addEventListener('click', function(){
-  game("paper");
+  round("paper");
+  game();
 });
 scissors_div.addEventListener('click', function(){
-  game("scissors");
+  round("scissors");
+  game();
 });
 
 }
-main();
-console.log(generateComp());
+userSelection();
