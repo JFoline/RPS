@@ -69,24 +69,44 @@ function game(){
 
   if (uScore === 5) {
    time_div.innerHTML = "congratulations! You defeated the computer in " + gameRound  +" round. ";
+   uScore = 0;
+   cScore = 0;
+   gameRound = 0;
  }
  if (cScore === 5) {
    time_div.innerHTML = "You lost to the computer in " + gameRound  +" round. ";
  }
+
+}
+
+function newGame(){
+  uScore = 0;
+  cScore = 0;
+  gameRound = 0;
+  time_div.innerHTML = "Round: " + gameRound;
 }
 
 function userSelection() {
 rock_div.addEventListener('click', function(){
   round("rock");
   game();
+  if (uScore === 5 || cScore === 5) {
+   newGame();
+ }
 });
 paper_div.addEventListener('click', function(){
   round("paper");
   game();
+  if (uScore === 5 || cScore === 5) {
+   newGame();
+ }
 });
 scissors_div.addEventListener('click', function(){
   round("scissors");
   game();
+  if (uScore === 5 || cScore === 5) {
+   newGame();
+ }
 });
 
 }
