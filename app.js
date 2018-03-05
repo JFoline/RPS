@@ -81,14 +81,13 @@ function round(userPlay){
 
 function game(){
   if (uScore === 5) {
-   roundTime_span.innerHTML = "Congratulations! You defeated the computer in round ";
+   roundTime_span.innerHTML = "Congratulations! You won in round ";
    winner = true;
  }
  if (cScore === 5) {
    roundTime_span.innerHTML = "You lost to the computer in round ";
    winner = true;
  }
- console.log(winner);
 }
 
 function newGame(){

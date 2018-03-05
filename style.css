@@ -4,13 +4,12 @@
 margin:0;
 padding:0;
 box-sizing: border-box;
--webkit-touch-callout: none; /* iOS Safari */
-	 -webkit-user-select: none; /* Safari */
-		-khtml-user-select: none; /* Konqueror HTML */
-			-moz-user-select: none; /* Firefox */
-			 -ms-user-select: none; /* Internet Explorer/Edge */
-					 user-select: none; /* Non-prefixed version, currently*/
-
+-webkit-touch-callout: none;
+	 -webkit-user-select: none;
+		-khtml-user-select: none;
+			-moz-user-select: none;
+			 -ms-user-select: none;
+					 user-select: none;
 }
 
 
@@ -19,7 +18,7 @@ body{
 	font-family: 'Roboto Slab', serif;
 	font-size: 200px;
 	text-align: center;
-	line-height: 1.5;
+	line-height: 1.25;
 }
 #board{
 	font-weight:700;
@@ -36,5 +35,29 @@ body{
 
 .route:hover {
   cursor: pointer;
-  background: #24272E;
+  text-shadow: 5px 5px 10px black;
+}
+.route:active {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
