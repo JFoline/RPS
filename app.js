@@ -1,11 +1,12 @@
 let uScore = 0;
 let cScore = 0;
 let gameRound = 1;
+let winner = false;
 const uScore_span = document.getElementById("uScore");
 const cScore_span = document.getElementById("cScore");
 const gameRound_span = document.getElementById("gameRound");
 const action_p = document.querySelector("#action > p");
-const time_div = document.querySelector("#time");
+const roundTime_span = document.getElementById("roundTime");
 const rock_div = document.getElementById("rock");
 const paper_div = document.getElementById("paper");
 const scissors_div = document.getElementById("scissors");
@@ -16,15 +17,25 @@ function generateComp(){
   return choices[random];
 }
 
+function verbSelection(choice){
+  if(choice === "rock"){
+    return "rock breaks";
+  }else if (choice === "paper") {
+    return "paper covers";
+  } else{
+    return "scissors cuts";
+  }
 
+}
 
 function win(userPlay, compPlay) {
   uScore++;
+  gameRound++;
   uScore_span.innerHTML = uScore;
   cScore_span.innerHTML = cScore;
   gameRound_span.innerHTML = gameRound;
-  action_p.innerHTML = userPlay + " beats " + compPlay;
-  gameRound++;
+  action_p.innerHTML =`Your  ${verbSelection(userPlay)} their ${compPlay}`;
+
 }
 
 function lose(userPlay, compPlay) {
@@ -33,7 +44,7 @@ function lose(userPlay, compPlay) {
   uScore_span.innerHTML = uScore;
   cScore_span.innerHTML = cScore;
   gameRound_span.innerHTML = gameRound;
-  action_p.innerHTML = userPlay + " loses to " + compPlay;
+  action_p.innerHTML = `Their ${verbSelection(compPlay)} your ${userPlay}`;
 }
 
 function tie(userPlay, compPlay) {
@@ -41,10 +52,13 @@ function tie(userPlay, compPlay) {
   uScore_span.innerHTML = uScore;
   cScore_span.innerHTML = cScore;
   gameRound_span.innerHTML = gameRound;
-  action_p.innerHTML =" both seleced " + compPlay;
+  action_p.innerHTML =`Draw, you both seleced ${compPlay}`;
 }
 
 function round(userPlay){
+  if (winner === true){
+    newGame();
+  }
   const compPlay = generateComp();
   switch  (userPlay + compPlay) {
     case "rockscissors":
@@ -66,47 +80,37 @@ function round(userPlay){
 }
 
 function game(){
-
   if (uScore === 5) {
-   time_div.innerHTML = "congratulations! You defeated the computer in " + gameRound  +" round. ";
-   uScore = 0;
-   cScore = 0;
-   gameRound = 0;
+   roundTime_span.innerHTML = "Congratulations! You defeated the computer in round ";
+   winner = true;
  }
  if (cScore === 5) {
-   time_div.innerHTML = "You lost to the computer in " + gameRound  +" round. ";
+   roundTime_span.innerHTML = "You lost to the computer in round ";
+   winner = true;
  }
-
+ console.log(winner);
 }
 
 function newGame(){
   uScore = 0;
   cScore = 0;
   gameRound = 0;
-  time_div.innerHTML = "Round: " + gameRound;
+  winner = false;
+  roundTime_span.innerHTML = "Round:";
 }
 
 function userSelection() {
 rock_div.addEventListener('click', function(){
   round("rock");
   game();
-  if (uScore === 5 || cScore === 5) {
-   newGame();
- }
 });
 paper_div.addEventListener('click', function(){
   round("paper");
   game();
-  if (uScore === 5 || cScore === 5) {
-   newGame();
- }
 });
 scissors_div.addEventListener('click', function(){
   round("scissors");
   game();
-  if (uScore === 5 || cScore === 5) {
-   newGame();
- }
 });
 
 }

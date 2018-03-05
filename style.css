@@ -4,21 +4,28 @@
 margin:0;
 padding:0;
 box-sizing: border-box;
+-webkit-touch-callout: none; /* iOS Safari */
+	 -webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+			-moz-user-select: none; /* Firefox */
+			 -ms-user-select: none; /* Internet Explorer/Edge */
+					 user-select: none; /* Non-prefixed version, currently*/
+
 }
 
 
 
 body{
 	font-family: 'Roboto Slab', serif;
-	font-size: 240px;
+	font-size: 200px;
 	text-align: center;
-	line-height: 1;
+	line-height: 1.5;
 }
 #board{
 	font-weight:700;
 }
 #action{
-	font-size: 80px;
+	font-size: 60px;
 }
 #time{
 	font-size: 40px;
