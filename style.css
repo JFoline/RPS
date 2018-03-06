@@ -16,28 +16,55 @@ box-sizing: border-box;
 
 body{
 	font-family: 'Roboto Slab', serif;
-	font-size: 200px;
+	color:#454F54;
+	font-size: 100px;
 	text-align: center;
 	line-height: 1.25;
+	background-color: #CAD2C5;
 }
 #board{
 	font-weight:700;
+	background-color: #84A98C;
+
+}
+#cScore{
+	color:#1d1d1d;
+}
+#uScore{
+	color:#516890;
 }
 #action{
-	font-size: 60px;
+	font-size: .3em;
 }
 #time{
-	font-size: 40px;
+	font-size: .4em;
+
+}
+.routes{
+	margin-top: .125em;
 }
 .route{
-	  display: inline-block
+	  display: inline-block;
+		border-style:solid;
+		border-width:3px;
+		color: #84A98C;
 }
+#rock{
+	border-radius: 10px 40px 10px 10px;
+}
+#paper{
+	border-radius: 40px 40px 40px 10px;
+}
+#scissors{
+	border-radius: 40px 10px;
+}
+
 
 .route:hover {
   cursor: pointer;
-  text-shadow: 5px 5px 10px black;
+  box-shadow: 10px 10px 20px #454F54;
 }
-.route:active {
+.draw:active {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
